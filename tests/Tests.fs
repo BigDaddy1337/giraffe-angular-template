@@ -54,26 +54,17 @@ let shouldContain (expected : string) (actual : string) =
 // ---------------------------------
 
 [<Fact>]
-let ``Route / returns "Hello world, from Giraffe!"`` () =
+let ``Route / returns "Angular Links!"`` () =
     use server = new TestServer(createHost())
     use client = server.CreateClient()
-
+    let expected = """[{"name":"Tour of Heroes","link":"https://angular.io/tutorial"},{"name":"CLI Documentation","link":"https://angular.io/cli"},{"name":"Angular blog","link":"https://angular.io/"}]"""
+    
     client
-    |> httpGet "/"
+    |> httpGet "/api/angular-links"
     |> ensureSuccess
     |> readText
-    |> shouldContain "Hello world, from Giraffe!"
+    |> shouldEqual expected
 
-[<Fact>]
-let ``Route /hello/fooBar returns "Hello fooBar, from Giraffe!"`` () =
-    use server = new TestServer(createHost())
-    use client = server.CreateClient()
-
-    client
-    |> httpGet "/hello/fooBar"
-    |> ensureSuccess
-    |> readText
-    |> shouldContain "Hello fooBar, from Giraffe!"
 
 [<Fact>]
 let ``Route which doesn't exist returns 404 Page not found`` () =
