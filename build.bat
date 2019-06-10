@@ -1,6 +1,6 @@
-dotnet restore src/GiraffeAngularTemplate
-dotnet build src/GiraffeAngularTemplate
+dotnet restore src
+dotnet build src
 
-dotnet restore tests/GiraffeAngularTemplate.Tests
-dotnet build tests/GiraffeAngularTemplate.Tests
-dotnet test tests/GiraffeAngularTemplate.Tests
+dotnet restore tests
+dotnet build tests
+dotnet test tests
