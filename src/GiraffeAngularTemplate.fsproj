@@ -1,30 +1,21 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
-
+<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
-    <DebugType>portable</DebugType>
     <AssemblyName>GiraffeAngularTemplate</AssemblyName>
     <OutputType>Exe</OutputType>
-    <EnableDefaultContentItems>false</EnableDefaultContentItems>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
-
+  <ItemGroup>
+    <Compile Include="Models.fs" />
+    <None Include="web.config" />
+    <Content Include="client/dist/*.*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Compile Include="View.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.5" />
     <PackageReference Include="Giraffe" Version="3.6.0" />
     <PackageReference Include="TaskBuilder.fs" Version="2.1.*" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="Program.fs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="web.config" CopyToOutputDirectory="PreserveNewest" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="client/dist/*.*">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
 </Project>

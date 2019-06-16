@@ -1,6 +1,7 @@
-# GiraffeAngularTemplate
+# F# Giraffe with Angular 8 Web Application
 
-A [Giraffe](https://github.com/giraffe-fsharp/Giraffe) web application, which has been created via the `dotnet new giraffe` command.
+[Giraffe](https://github.com/giraffe-fsharp/Giraffe)
+[Angular](https://github.com/angular/angular)
 
 ## Build and test the application
 
@@ -20,12 +21,19 @@ Run the `build.sh` script in order to restore, build and test (if you've selecte
 $ ./build.sh
 ```
 
+### Docker
+
+```
+> docker-compose -f docker-compose.dev.yml up --build
+```
+
 ## Run the application
 
 After a successful build you can start the web application by executing the following command in your terminal:
 
 ```
-dotnet run src/GiraffeAngularTemplate
+> cd src
+> dotnet run
 ```
 
 After the application has started visit [http://localhost:5000](http://localhost:5000) in your preferred browser.
